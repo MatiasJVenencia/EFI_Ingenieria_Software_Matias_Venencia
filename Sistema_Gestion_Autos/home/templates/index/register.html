@@ -1,0 +1,49 @@
+{% extends 'index/base.html' %}
+
+{% block content %}
+    <h2>REGISTRAR USUARIO</h2>
+    <form class="d-flex flex-column gap-2" action="" method="post">
+        {% csrf_token %}
+        
+        <label>Nombre de usuario</label>
+        {{form.username}}
+        {% if form.username.errors %}
+            <p>{{form.username.errors}}</p>
+        {% endif %}
+
+        <label>Email</label>
+        {{form.email}}
+        {% if form.email.errors %}
+            <p>{{form.email.errors}}</p>
+        {% endif %}
+
+
+        <label>Contraseña</label>
+        {{form.password1}}
+        {% if form.password1.errors %}
+            <p>{{form.password1.errors}}</p>
+        {% endif %}
+
+        <label>Repita su contraseña</label>
+        {{form.password2}}
+        {% if form.password2.errors %}
+            <p>{{form.password2.errors}}</p>
+        {% endif %}
+
+        <label>Nombre</label>
+        {{form.first_name}}
+        {% if form.first_name.errors %}
+            <p>{{form.first_name.errors}}</p>
+        {% endif %}
+
+        <label>Apellido</label>
+        {{form.last_name}}
+        {% if form.last_name.errors %}
+            <p>{{form.last_name.errors}}</p>
+        {% endif %}
+        
+        <button class="btn btn-success" type="submit"> Registrarme </button> 
+
+
+    </form>
+{% endblock %}
